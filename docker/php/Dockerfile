@@ -12,10 +12,8 @@ RUN apt-get update && apt-get install -y \
     pdo_pgsql \
     && rm -rf /var/lib/apt/lists/*
 
-# Установка Redis расширения
 RUN pecl install redis && docker-php-ext-enable redis
 
-# Установка AMQP расширения
 RUN pecl install amqp && docker-php-ext-enable amqp
 
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
